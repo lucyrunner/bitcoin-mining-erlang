@@ -132,8 +132,7 @@ limiting concurrency); a ratio approaching your machine's core count means
 the actor model is using your hardware well.
 
 ## 🏆 Best coin found
-> 📝 TODO: from your run's output, find the line with the most leading
-> zeros and paste it here:
+> 📝 zifeiliu;16386015 000000b175815a54938134052c44086c8ac55ec777dfd1abe15dd56b811ab7dd
 ```
 TODO
 ```
