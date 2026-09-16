@@ -1,7 +1,6 @@
--module(bitcoin).
--export([main/1]).
+-module(bitcoin).-export([main/1]).
 
--define(GATORID, "zifeiliu").
+-define(GATORID, "gatorlinkid").
 -define(WORK_UNIT, 50000).
 -define(COOKIE, bitcoin_mining_cookie).
 

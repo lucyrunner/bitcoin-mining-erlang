@@ -1,9 +1,9 @@
-# 🪙 COP5615 Project 1 — Bitcoin Mining with the Erlang Actor Model
+# 🪙 Bitcoin Mining with the Erlang Actor Model
 
 ## 👥 Group members
-- TODO: add your name(s) and UFID(s) here
-- GatorLink ID used to prefix mined coins: **`TODO`** — make sure this
-  matches the `?GATORID` macro at the top of `src/bitcoin.erl`
+- Name: Lucy Liu
+- Gator ID: "zifeiliu"
+
 
 ## 📁 Files
 ```
