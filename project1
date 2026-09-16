@@ -1,0 +1,3 @@
+#!/bin/sh
+DIR="$(cd "$(dirname "$0")" && pwd)"
+exec erl -pa "$DIR/ebin" -noshell -run bitcoin main "$@"
