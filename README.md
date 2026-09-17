@@ -125,7 +125,6 @@ model, well above the 1.0 ratio that would signal almost no parallelism.
 ```
 
 ## ⏱️ Running time
-> 📝 ⏱️ Running time
 
 > Command run:
 time timeout 60 ./project1 4
