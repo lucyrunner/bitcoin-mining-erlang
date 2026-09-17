@@ -133,9 +133,6 @@ the actor model is using your hardware well.
 
 ## 🏆 Best coin found
 > 📝 zifeiliu;16386015 000000b175815a54938134052c44086c8ac55ec777dfd1abe15dd56b811ab7dd
-```
-TODO
-```
 
 ## 🌐 Distributed test
 > 📝 TODO: describe how many machines you tested with. At minimum, test
