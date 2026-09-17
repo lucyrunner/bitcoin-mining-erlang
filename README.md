@@ -104,32 +104,40 @@ per worker.
 > `WORK_UNIT` values, and note the hashes/sec each time.
 
 ## 🎯 Result of running for input 4 (`./project1 4`)
-> 📝 TODO: paste your own output here. Run:
-> ```
-> ./project1 4
-> ```
-> let it run for a while, then Ctrl+C, and paste the printed lines
-> (GatorID;N \t hash) below.
-```
-TODO — paste coin output here
-```
-
 ## ⏱️ Running time
-> 📝 TODO: run the following and paste the result:
+
+Command run:
 > ```
 > time timeout 60 ./project1 4
 > ```
-> (times out after 60 seconds so it doesn't run forever)
+
+Result (zsh's built-in `time` format — auto-stopped after 60s):
+> ```
+> timeout 60 ./project1 4  366.03s user 11.81s system 629% cpu 1:00.03 total
+> ```
+
+📊 CPU-time / real-time ratio ≈ 366.03s / 60.03s ≈ **6.10**
+
+🚀 This means the program kept roughly **6 CPU cores busy simultaneously**
+throughout the run — strong evidence of real parallelism from the actor
+model, well above the 1.0 ratio that would signal almost no parallelism.
+
 ```
-real    TODOs
-user    TODOs
-sys     TODOs
-```
-CPU-time / real-time ratio ≈ `user / real` — this tells you roughly how
-many cores were used. A ratio near 1.0 means almost no parallelism was
-achieved (this can happen on a machine with few cores, or if something is
-limiting concurrency); a ratio approaching your machine's core count means
-the actor model is using your hardware well.
+
+## ⏱️ Running time
+> 📝 ⏱️ Running time
+
+> Command run:
+time timeout 60 ./project1 4
+
+Result (zsh's built-in `time` format):
+timeout 60 ./project1 4  366.03s user 11.81s system 629% cpu 1:00.03 total
+
+CPU-time / real-time ratio ≈ 366.03s / 60.03s ≈ 6.10
+
+This means the program kept roughly 6 CPU cores busy simultaneously
+throughout the run — strong evidence of real parallelism from the actor
+model, well above the 1.0 ratio that would indicate no parallelism at all.
 
 ## 🏆 Best coin found
 > 📝 zifeiliu;16386015 000000b175815a54938134052c44086c8ac55ec777dfd1abe15dd56b811ab7dd
