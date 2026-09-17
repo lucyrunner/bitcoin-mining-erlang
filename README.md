@@ -122,22 +122,6 @@ Result (zsh's built-in `time` format — auto-stopped after 60s):
 throughout the run, which demonstrates real parallelism from the actor
 model, well above the 1.0 ratio that would signal almost no parallelism.
 
-
-
-## ⏱️ Running time
-
-> Command run:
-time timeout 60 ./project1 4
-
-Result (zsh's built-in `time` format):
-timeout 60 ./project1 4  366.03s user 11.81s system 629% cpu 1:00.03 total
-
-CPU-time / real-time ratio ≈ 366.03s / 60.03s ≈ 6.10
-
-This means the program kept roughly 6 CPU cores busy simultaneously
-throughout the run — strong evidence of real parallelism from the actor
-model, well above the 1.0 ratio that would indicate no parallelism at all.
-
 ## 🏆 Best coin found
 > 📝 zifeiliu;16386015 000000b175815a54938134052c44086c8ac55ec777dfd1abe15dd56b811ab7dd
 
