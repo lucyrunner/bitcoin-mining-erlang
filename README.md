@@ -103,7 +103,7 @@ per worker.
 > the server, let it run for e.g. 60 seconds at a couple of different
 > `WORK_UNIT` values, and note the hashes/sec each time.
 
-## 🎯 Result of running for input 4 (`./project1 4`)
+## 🎯 Result of running for input (`./project1 4`)
 ## ⏱️ Running time
 
 Command run:
