@@ -40,7 +40,7 @@ Example:
 # on a worker machine, once the server is running
 ./project1 10.22.13.155
 ```
-A worker prints nothing of its own — every coin found, by the server or by
+A worker prints nothing of its ow. For every coin that is found, by the server or by
 any worker, is sent back to the boss actor and printed only there, as
 required.
 
@@ -119,7 +119,7 @@ Result (zsh's built-in `time` format — auto-stopped after 60s):
 📊 CPU-time / real-time ratio ≈ 366.03s / 60.03s ≈ **6.10**
 
 🚀 This means the program kept roughly **6 CPU cores busy simultaneously**
-throughout the run — strong evidence of real parallelism from the actor
+throughout the run, which demonstrates real parallelism from the actor
 model, well above the 1.0 ratio that would signal almost no parallelism.
 
 ```
