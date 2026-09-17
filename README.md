@@ -122,7 +122,7 @@ Result (zsh's built-in `time` format — auto-stopped after 60s):
 throughout the run, which demonstrates real parallelism from the actor
 model, well above the 1.0 ratio that would signal almost no parallelism.
 
-```
+
 
 ## ⏱️ Running time
 
