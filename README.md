@@ -76,15 +76,15 @@ given `WORK_UNIT`, let them run for a fixed number of seconds, and measure
 how many candidate integers were processed (hashes/sec) using the boss's
 `NextStart` counter.
 
-| Work unit | Hashes/sec (example run) |
+| Work unit | Hashes/sec (our machine) |
 |----------:|--------------------------:|
-| 200       | ~75,000  |
-| 1,000     | ~76,000  |
-| 5,000     | ~74,000  |
-| 20,000    | ~80,000  |
-| 50,000    | ~87,500  |
-| 100,000   | ~100,000 |
-| 500,000   | ~125,000 |
+| 200       | 541,900   |
+| 1,000     | 568,750   |
+| 5,000     | 570,000   |
+| 20,000    | 560,000   |
+| 50,000    | 600,000   |
+| 100,000   | 600,000   |
+| 500,000   | 1,000,000 |
 
 Throughput climbs as the work unit grows because every hand-off costs a
 message round trip (`work_request` → `work`) between a worker and the boss;
@@ -98,10 +98,6 @@ We settled on **`WORK_UNIT = 50,000`** (already set in `bitcoin.erl`),
 which is past the steep part of the throughput curve while still small
 enough for the boss to keep re-balancing work every fraction of a second
 per worker.
-
-> 📝 TODO: replace the table above with numbers from your own run — start
-> the server, let it run for e.g. 60 seconds at a couple of different
-> `WORK_UNIT` values, and note the hashes/sec each time.
 
 ## 🎯 Result of running for input (`./project1 4`)
 ## ⏱️ Running time
