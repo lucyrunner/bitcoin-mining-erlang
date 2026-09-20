@@ -78,8 +78,7 @@ erl -pa ebin -noshell -run bench run
 ```
 
 **Output (some repeated `bench;301557` lines are just the deterministic
-benchmark re-finding the same coin across trials — expected, not an
-error):**
+benchmark that repetitively finds the same coin across trials):**
 ```
 WorkUnit     Hashes/sec     
 200          541900.00      
