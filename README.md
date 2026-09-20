@@ -68,6 +68,29 @@ required.
   ever talks to the boss (or to itself, recursively) via message passing.
 
 ## ⚙️ Work unit size
+
+**Commands run:**
+```
+epmd -daemon
+make
+erlc -o ebin bench.erl
+erl -pa ebin -noshell -run bench run
+```
+
+**Output (some repeated `bench;301557` lines are just the deterministic
+benchmark re-finding the same coin across trials — expected, not an
+error):**
+```
+WorkUnit     Hashes/sec     
+200          541900.00      
+1000         568750.00      
+5000         570000.00      
+20000        560000.00      
+50000        600000.00      
+100000       600000.00      
+500000       1000000.00
+```
+
 The size of the work unit is the number of consecutive candidate integers
 (`Start..End`) the boss hands to a worker actor in one `{work, ...}`
 response. We determined a good size empirically: pick a low difficulty
