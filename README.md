@@ -419,7 +419,7 @@ zifeiliu;20109971       00008da5ac0b42f197a88c04ae116c8bf99ac5f93c8b072237002d64
 zifeiliu;20061383       00003f886cb36a8178538a5484bf5d8bafc28dfe7bb444ad27d2dfed4f3c6553
 ```
 
-##📊 CPU-time 
+## 📊 CPU-time 
 real-time ratio ≈ 393.82s / 60.03s ≈ **6.56**
 
 🚀 This means the program kept roughly **6 CPU cores busy simultaneously**
