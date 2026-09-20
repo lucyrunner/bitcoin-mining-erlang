@@ -424,7 +424,7 @@ real-time ratio ≈ 393.82s / 60.03s ≈ **6.56**
 
 🚀 This means the program kept roughly **6 CPU cores busy simultaneously**
 throughout the run, which demonstrates real parallelism from the actor
-model, well above the 1.0 ratio that would signal almost no parallelism.
+
 
 
 ## 🏆 Best coin found
