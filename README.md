@@ -134,7 +134,6 @@ Result (zsh's built-in `time` format — auto-stopped after 60s):
 > timeout 60 ./project1 4  393.82s user 1.81s system 658% cpu 1:00.09 total
 > ```
 
-## 🎯 Result of running for input 4 (`./project1 4`)
 Ran continuously for 60 seconds and found **543 coins** total. First 25 shown below (full list omitted for length, all lines follow the same `GatorID;N<TAB>hash` format):
 ```
 zifeiliu;66728  0000271626b474ca08fe0e7517e4233b762f43460da530746e94282667278ca8
