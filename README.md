@@ -134,12 +134,6 @@ Result (zsh's built-in `time` format — auto-stopped after 60s):
 > timeout 60 ./project1 4  393.82s user 1.81s system 658% cpu 1:00.09 total
 > ```
 
-📊 CPU-time / real-time ratio ≈ 393.82s / 60.03s ≈ **6.56**
-
-🚀 This means the program kept roughly **6 CPU cores busy simultaneously**
-throughout the run, which demonstrates real parallelism from the actor
-model, well above the 1.0 ratio that would signal almost no parallelism.
-
 ## 🎯 Result of running for input 4 (`./project1 4`)
 Ran continuously for 60 seconds and found **543 coins** total. First 25 shown below (full list omitted for length, all lines follow the same `GatorID;N<TAB>hash` format):
 ```
@@ -450,6 +444,13 @@ zifeiliu;19894018       0000d166a321d8d7e0f96b24d3b89ec1d06c64341da8e10e8b537636
 zifeiliu;20109971       00008da5ac0b42f197a88c04ae116c8bf99ac5f93c8b072237002d642f7c0fc7
 zifeiliu;20061383       00003f886cb36a8178538a5484bf5d8bafc28dfe7bb444ad27d2dfed4f3c6553
 ```
+
+📊 CPU-time / real-time ratio ≈ 393.82s / 60.03s ≈ **6.56**
+
+🚀 This means the program kept roughly **6 CPU cores busy simultaneously**
+throughout the run, which demonstrates real parallelism from the actor
+model, well above the 1.0 ratio that would signal almost no parallelism.
+
 
 ## 🏆 Best coin found
 > 📝 zifeiliu;16386015 000000b175815a54938134052c44086c8ac55ec777dfd1abe15dd56b811ab7dd
