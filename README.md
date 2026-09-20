@@ -423,7 +423,7 @@ zifeiliu;20061383       00003f886cb36a8178538a5484bf5d8bafc28dfe7bb444ad27d2dfed
 real-time ratio ≈ 393.82s / 60.03s ≈ **6.56**
 
 🚀 This means the program kept roughly **6 CPU cores busy simultaneously**
-throughout the run, which demonstrates real parallelism from the actor
+throughout the run, which demonstrates real parallelism from the actor.
 
 
 
