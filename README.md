@@ -27,10 +27,6 @@ make
                            # leading-zero hashes and accepting remote workers
 ./project1 <ServerIP>      # run as a WORKER, joining the server at <ServerIP>
 ```
-The two modes are distinguished exactly like the assignment's two examples:
-a single numeric argument means "run as server with this difficulty"; a
-non-numeric argument is treated as the server's address and this instance
-joins as a worker.
 
 Example:
 ```
@@ -44,28 +40,7 @@ A worker prints nothing of its ow. For every coin that is found, by the server o
 any worker, is sent back to the boss actor and printed only there, as
 required.
 
-## 🎭 Actor model design
-- **`boss` actor** (`boss.erl`) is the single owner of the mining state: the
-  difficulty `K`, the next unassigned range of candidate integers, and the
-  best coin seen so far. It only ever does two things: hand out a
-  `{work, K, Start, End}` range when asked, and print a line when a
-  `{found, Input, Hash, Zeros}` message arrives. It is registered locally
-  under the name `boss` so that remote nodes can message it directly via
-  `{boss, Node} ! Msg` without needing global registration.
-- **`worker` actors** (`worker.erl`) do all the hashing. `start_local_workers/2`
-  spawns one actor per `erlang:system_info(schedulers)` — i.e. one per usable
-  core — whether it's running inside the server process or on a remote
-  worker node. Each actor independently asks the boss for a range, computes
-  `SHA-256(GatorID ++ ";" ++ N)` for every `N` in that range, and reports any
-  hash whose hex representation has at least `K` leading zero digits. When a
-  range is exhausted, the actor immediately asks for another — so the boss
-  performs continuous, on-demand load balancing rather than a fixed
-  up-front assignment.
-- **Distribution** (`bitcoin.erl`) uses standard distributed Erlang
-  (`net_kernel`, a shared cookie, `net_adm:ping/1`) to let a worker node join
-  the server node over the network. No shared memory or locks are used
-  anywhere — every core, local or remote, is just another actor that only
-  ever talks to the boss (or to itself, recursively) via message passing.
+
 
 ## ⚙️ Work unit size
 
