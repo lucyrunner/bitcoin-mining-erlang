@@ -431,7 +431,7 @@ throughout the run, which demonstrates real parallelism from the actor.
 > 📝 zifeiliu;16386015 000000b175815a54938134052c44086c8ac55ec777dfd1abe15dd56b811ab7dd
 
 ## 🌐 Distributed test
-> 📝 ## 🌐 Distributed test
+> 🌐 Distributed test
 I tested with **2 physical machines** on the same home Wi-Fi network.
 
 **Server (Machine A, IP 192.168.1.201):**
@@ -452,7 +452,7 @@ address as a node name. I fixed it by adding an /etc/hosts entry on
 Machine B mapping Machine A's IP to its real hostname:
 
 sudo nano /etc/hosts
-# added: 192.168.1.201   Lucys-Air
+## added: 192.168.1.201   Lucys-Air
 
 ./project1 Lucys-Air
 
