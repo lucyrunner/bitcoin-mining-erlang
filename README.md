@@ -36,7 +36,7 @@ Example:
 # on a worker machine, once the server is running
 ./project1 10.22.13.155
 ```
-A worker prints nothing of its ow. For every coin that is found, by the server or by
+For every coin that is found, by the server or by
 any worker, is sent back to the boss actor and printed only there, as
 required.
 
@@ -83,7 +83,7 @@ how many candidate integers were processed (hashes/sec) using the boss's
 | 100,000   | 600,000   |
 | 500,000   | 1,000,000 |
 
-Throughput climbs as the work unit grows because every hand-off costs a
+Throughput increases as the work unit grows because every hand-off costs a
 message round trip (`work_request` → `work`) between a worker and the boss;
 a bigger unit amortizes that fixed cost over more hashes. But too large a
 work unit hurts **load balancing across a distributed cluster of
@@ -91,7 +91,7 @@ heterogeneous machines** — if one slow or late-joining machine is handed a
 huge range, every other machine can end up idle waiting for it near the
 end of a run.
 
-We settled on **`WORK_UNIT = 50,000`** (already set in `bitcoin.erl`),
+I settled on **`WORK_UNIT = 50,000`** (already set in `bitcoin.erl`),
 which is past the steep part of the throughput curve while still small
 enough for the boss to keep re-balancing work every fraction of a second
 per worker.
@@ -431,15 +431,35 @@ throughout the run, which demonstrates real parallelism from the actor.
 > 📝 zifeiliu;16386015 000000b175815a54938134052c44086c8ac55ec777dfd1abe15dd56b811ab7dd
 
 ## 🌐 Distributed test
-> 📝 TODO: describe how many machines you tested with. At minimum, test
-> with 2 (a server and one worker) using:
-> ```
-> # on the server
-> ./project1 4
->
-> # on the worker, once the server is running
-> ./project1 <server's IP address>
-> ```
-> Confirm the worker prints nothing of its own, and that coins found by
-> the worker still show up in the server's output. Report the largest
-> number of machines you were able to test with.
+> 📝 ## 🌐 Distributed test
+I tested with **2 physical machines** on the same home Wi-Fi network.
+
+**Server (Machine A, IP 192.168.1.201):**
+./project1 4
+
+**Worker (Machine B) — commands run:**
+epmd -daemon
+./project1 192.168.1.201
+
+Output:
+=ERROR REPORT====
+** System NOT running to use fully qualified hostnames **
+** Hostname 192.168.1.201 is illegal **
+Could not reach server node boss@192.168.1.201
+
+This failed because Erlang's shortnames mode does not accept a dotted IP
+address as a node name. I fixed it by adding an /etc/hosts entry on
+Machine B mapping Machine A's IP to its real hostname:
+
+sudo nano /etc/hosts
+# added: 192.168.1.201   Lucys-Air
+
+./project1 Lucys-Air
+
+Output:
+Worker node worker1@Mac joined server boss@Lucys-Air
+
+Machine B printed exactly that one line and nothing further, confirming
+the worker contributed hashing power without printing any coins itself.
+All coins remained visible only in Machine A's (the server's) output, as
+required.
