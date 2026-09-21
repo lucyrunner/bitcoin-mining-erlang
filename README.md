@@ -431,33 +431,44 @@ throughout the run, which demonstrates real parallelism from the actor.
 > 📝 zifeiliu;16386015 000000b175815a54938134052c44086c8ac55ec777dfd1abe15dd56b811ab7dd
 
 ## 🌐 Distributed test
-> 🌐 Distributed test
-I tested with **2 physical machines** on the same home Wi-Fi network.
+> 📝 Tested with **2 physical machines** on the same home Wi-Fi network.
 
-**Server (Machine A, IP 192.168.1.201):**
+### Server (Machine A, IP `192.168.1.201`)
+```bash
 ./project1 4
+```
 
-**Worker (Machine B) — commands run:**
+### Worker (Machine B) — first attempt
+```bash
 epmd -daemon
 ./project1 192.168.1.201
-
+```
 Output:
+```
 =ERROR REPORT====
 ** System NOT running to use fully qualified hostnames **
 ** Hostname 192.168.1.201 is illegal **
 Could not reach server node boss@192.168.1.201
+```
 
 This failed because Erlang's shortnames mode does not accept a dotted IP
-address as a node name. I fixed it by adding an /etc/hosts entry on
-Machine B mapping Machine A's IP to its real hostname:
+address as a node name.
 
+**Fix:** added an `/etc/hosts` entry on Machine B mapping Machine A's IP
+to its real hostname:
+```bash
 sudo nano /etc/hosts
-## added: 192.168.1.201   Lucys-Air
+# added: 192.168.1.201   Lucys-Air
+```
 
+### Worker (Machine B) — retry
+```bash
 ./project1 Lucys-Air
-
+```
 Output:
+```
 Worker node worker1@Mac joined server boss@Lucys-Air
+```
 
 Machine B printed exactly that one line and nothing further, confirming
 the worker contributed hashing power without printing any coins itself.
